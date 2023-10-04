@@ -13,7 +13,7 @@ class ComputerTest {
         Computer computer = new Computer("713");
         String[] balls = {"123", "145", "671", "216", "713"};
         String[] answer = {
-                "1, 1", "1, 0", "2, 0", "0, 1", "0, 3"
+                "1볼 1스트라이크", "1볼", "2볼", "1스트라이크", "3스트라이크"
         };
 
         for (int i = 0; i < balls.length; i++) {
