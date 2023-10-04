@@ -15,7 +15,7 @@ public class Computer {
         this.gameOver = false;
     }
 
-    private boolean isGameOver() {
+    public boolean isGameOver() {
         return gameOver;
     }
 
@@ -42,6 +42,10 @@ public class Computer {
             }
         }
 
+        if (strikeCounts == 3) {
+            this.gameOver = true;
+        }
+
         return getMessage(ballCounts, strikeCounts);
     }
 
@@ -64,10 +68,6 @@ public class Computer {
 
         if (ball == 0) {
             return strike + "스트라이크";
-        }
-
-        if (strike == 3) {
-            this.gameOver = true;
         }
 
         return ball + "볼 " + strike + "스트라이크";
