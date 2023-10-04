@@ -23,21 +23,31 @@ public class Computer {
         return number;
     }
 
-    private String catchBall(String guess) {
-        return "";
+    public String catchBall(String guess) {
+        int ballCounts = 0;
+        int strikeCounts = 0;
+
+        for (int i = 0; i < guess.length(); i++) {
+            if (isStrike(guess, i)) {
+                strikeCounts++;
+                continue;
+            }
+            if (isBall(guess.charAt(i))) {
+                ballCounts++;
+            }
+        }
+
+        return ballCounts + ", " + strikeCounts;
     }
 
-    public int countBall(String guess) {
-        return (int) IntStream.range(0, 3)
-                .filter(a -> this.number.contains(guess.substring(a, a + 1)))
-                .count();
+    private boolean isBall(char guess) {
+        return number.contains(String.valueOf(guess));
     }
 
-    public int countStrike(String guess) {
-        return (int) IntStream.range(0, 3)
-                .filter(a -> this.number.charAt(a) == guess.charAt(a))
-                .count();
+    private boolean isStrike(String guess, int index) {
+        return guess.charAt(index) == number.charAt(index);
     }
+
 
     private String createRandomNumber() {
         List<String> list = new ArrayList<>(List.of("1", "2", "3", "4", "5", "6", "7", "8", "9"));
