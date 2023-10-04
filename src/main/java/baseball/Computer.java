@@ -8,9 +8,15 @@ import java.util.ArrayList;
 public class Computer {
 
     private final String number;
+    private boolean gameOver;
 
     public Computer() {
         this.number = createRandomNumber();
+        this.gameOver = false;
+    }
+
+    private boolean isGameOver() {
+        return gameOver;
     }
 
     //Test 전용
@@ -58,6 +64,10 @@ public class Computer {
 
         if (ball == 0) {
             return strike + "스트라이크";
+        }
+
+        if (strike == 3) {
+            this.gameOver = true;
         }
 
         return ball + "볼 " + strike + "스트라이크";
