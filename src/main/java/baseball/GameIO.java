@@ -17,7 +17,7 @@ public class GameIO {
     }
 
     public static String enterOption() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.\n");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         String input = Console.readLine();
         throwErrorIfInvalidOption(input);
         return input;
@@ -41,7 +41,6 @@ public class GameIO {
 
     public static boolean isAllNumberUnique(String number) {
         Set<String> set = new HashSet<>(List.of(number.split("")));
-        System.out.println(set);
         return set.size() == 3;
     }
 
