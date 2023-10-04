@@ -2,8 +2,10 @@ package baseball;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Computer {
 
@@ -75,13 +77,18 @@ public class Computer {
 
 
     private String createRandomNumber() {
-        List<String> list = new ArrayList<>(List.of("1", "2", "3", "4", "5", "6", "7", "8", "9"));
-        StringBuilder temp = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            int randomIndex = Randoms.pickNumberInRange(0, list.size() - 1);
-            temp.append(list.remove(randomIndex));
+        Set<Integer> set = new HashSet<>();
+        while (set.size() < 3) {
+            set.add(Randoms.pickNumberInRange(1, 9));
         }
+        return setToString(set);
+    }
 
-        return temp.toString();
+    private String setToString(Set<Integer> set) {
+        StringBuilder sb = new StringBuilder();
+        for (int s : set) {
+            sb.append(s);
+        }
+        return sb.toString();
     }
 }
