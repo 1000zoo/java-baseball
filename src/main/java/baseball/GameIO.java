@@ -18,7 +18,9 @@ public class GameIO {
 
     public static String enterOption() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.\n");
-        return Console.readLine();
+        String input = Console.readLine();
+        throwErrorIfInvalidOption(input);
+        return input;
     }
 
     public static void printLog(String log) {
